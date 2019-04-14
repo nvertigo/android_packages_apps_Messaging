@@ -17,5 +17,4 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="notification_mark_as_read">Märgi loetuks</string>
-    <string name="notification_channel_messages_title">Sõnumid</string>
 </resources>
