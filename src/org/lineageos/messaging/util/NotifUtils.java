@@ -43,7 +43,6 @@ public final class NotifUtils {
 
         String title = context.getString(titleResId);
         NotificationChannel newChannel = new NotificationChannel(id, title, priority);
-        newChannel.enableLights(true);
         if (groupId != null) {
             newChannel.setGroup(groupId);
         }
@@ -63,7 +62,6 @@ public final class NotifUtils {
         }
 
         NotificationChannel newChannel = new NotificationChannel(id, title, priority);
-        newChannel.enableLights(true);
         if (groupId != null) {
             newChannel.setGroup(groupId);
         }
