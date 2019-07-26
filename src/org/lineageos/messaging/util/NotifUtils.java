@@ -31,8 +31,23 @@ public final class NotifUtils {
 
     public static void createNotificationChannel(Context context, String id,
             int titleResId, int priority, String groupId) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            return;
+        }
+
+        NotificationManager manager = context.getSystemService(NotificationManager.class);
+        NotificationChannel existing = manager.getNotificationChannel(id);
+        if (existing != null) {
+            return;
+        }
+
         String title = context.getString(titleResId);
-        createNotificationChannel(context, id, title, priority, groupId);
+        NotificationChannel newChannel = new NotificationChannel(id, title, priority);
+        newChannel.enableLights(true);
+        if (groupId != null) {
+            newChannel.setGroup(groupId);
+        }
+        manager.createNotificationChannel(newChannel);
     }
 
     public static void createNotificationChannel(Context context, String id,
